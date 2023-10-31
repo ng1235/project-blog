@@ -18,6 +18,10 @@ export const generateMetadata = async ({ params }) => {
   };
 };
 
+const DivisionGroupsDemo = React.lazy(() =>
+  import("@/components/DivisionGroupsDemo")
+);
+
 async function BlogPost({ params }) {
   const slug = params.postSlug;
   const post = await loadBlogPost(slug);
@@ -32,6 +36,7 @@ async function BlogPost({ params }) {
           source={post.content}
           components={{
             pre: CodeSnippet,
+            DivisionGroupsDemo,
           }}
         />
       </div>
